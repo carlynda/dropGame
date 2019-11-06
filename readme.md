@@ -14,17 +14,17 @@ Advanced features (future):
 TODO LIST:  
 
 Design: 
-[ ] Create a canvas with target at the bottom of the screen, center of width
-[ ] Create objects to drop 
-[ ] Score board
-[ ] Item input, drop button 
+*[ ] Create a canvas with target at the bottom of the screen, center of width
+*[ ] Create objects to drop 
+*[ ] Score board
+*[ ] Item input, drop button 
 
 Logic: 
-[ ] Dropping mechanism
-    [ ] Get random starting point: random x, y = 0
-    [ ] Give each object random velocity 
-    [ ] If object hits edge: bounce back
-[ ] Scoring mechanism:
-    [ ] Point decreases as user increase the amount of item drops 
-    [ ] Get points and store points based on landing location 
-    [ ] Update object amount based on points 
+*[ ] Dropping mechanism
+    *[ ] Get random starting point: random x, y = 0
+    *[ ] Give each object random velocity 
+    *[ ] If object hits edge: bounce back
+*[ ] Scoring mechanism:
+    *[ ] Point decreases as user increase the amount of item drops 
+    *[ ] Get points and store points based on landing location 
+    *[ ] Update object amount based on points 
