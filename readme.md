@@ -18,6 +18,7 @@ Design:
 * [x] Create objects to drop 
 * [x] Score board
 * [x] Item input, drop button 
+* [ ] Fix drop button's look
 
 Logic: 
 * [ ] Dropping mechanism
