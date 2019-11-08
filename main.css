@@ -15,17 +15,33 @@ body{
     height: 100vh; 
     background-image: linear-gradient(rgba(14, 15, 78, 0.9), rgba(56, 56, 56, 0.9));
 }
+.message{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    color: rgb(235, 115, 60); 
+}
 .drop {
     position: fixed;
-    width: 150px;
+    width: 50px;
     display: inline-block;
     transform: rotate(10deg);
     animation: sway 1s infinite alternate ease-in-out;
 }
 
-.img-drop{
-    width: 50%;
+.drop.landed {
+    transform: rotate(0deg);
+    opacity: 0;
+    animation: none;
+    animation: fadeout 10s;
+    transform-origin: bottom;
 }
+.img-drop{
+    height: 50px;
+}
+
 .element {
 animation: pulse 5s infinite;
 }
@@ -34,7 +50,7 @@ animation: pulse 5s infinite;
 .target{
     position: absolute;
     width: 15rem;
-    top: 95vh;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -97,6 +113,16 @@ animation: pulse 5s infinite;
       transform: scale(1);
     }
     100% {
+      transform: scale(0);
+    }
+  }
+  @keyframes fadeout {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
       transform: scale(0);
     }
   }

@@ -5,21 +5,22 @@ const imgtarget = document.querySelector('.target');
 
 let drops = []; 
 var totalScore = 100; 
-
 userInput.addEventListener('input', function(){
-    userScore.textContent = totalScore - userInput.value; 
+    var displayScore = totalScore - userInput.value;
+    userScore.textContent = totalScore - userInput.value;
 }); 
 
 btnDrop.addEventListener('click', doDrop); 
 
 
 function createDropElement(img){
-    const div = document.createElement('div'); 
-    div.className = 'drop';
-    div.innerHTML = '<div class = "image"> <img class = "img-drop" src = "./img/leaf.png"/> </div>';
+    for(var i = 0; i < userInput.value; i++){
+        var div = document.createElement('div'); 
+        div.className = 'drop';
+        div.innerHTML = '<div class = "drop-image"> <img class = "img-drop" src = "./img/leaf.png"/> </div>';
+        return div;
+    }
     //(Advanced feature) change to array of img for user to choose later 
-
-    return div;
 }
 
 function doDrop(img){
@@ -31,15 +32,16 @@ function doDrop(img){
             y: -200, 
         },
         velocity:{
-            x: Math.random() * (Math.random() > 5 ? -1 : 1) * 10, 
-            y: 1.5 + Math.random() * 5, 
+            x: Math.random() * (Math.random() > 0.5 ? -1 : 1) * 10, 
+            y: 2 + Math.random() * 5, 
         }
     }; 
-    for(var i = 0; i < userInput.value; i++){
-        drops.push(drop);
-    }
+    
+    drops.push(drop);
     document.body.appendChild(element); 
-    updateDropPosition(drop); 
+    drops.forEach (drop => updateDropPosition(drop)); 
+    totalScore--; 
+    userScore.textContent = totalScore;
 }; 
 
 
@@ -71,13 +73,17 @@ function update(){
             drop.velocity.x = 0;
             drop.location.y = window.innerHeight - drop.element.clientHeight;
             drop.landed = true;
-            drop.element.className.add('landed'); 
+            // drop.element.classList.add('landed'); 
             const { x } = drop.location;
-            const score = Math.abs(window.innerWidth / 2 - x); 
+            const score = Math.round(Math.abs(window.innerWidth / 2 - x));
+            console.log(window.innerWidth, x, score, targetHalfWidth) 
             if(score <= targetHalfWidth){
-                const finalScore = (1 - (score / targetHalfWidth)) * 10; 
+                const finalScore = (1 - (score / targetHalfWidth)) * 100; 
+                totalScore += displayScore;
+                console.log(displayScore);
+                console.log(finalScore);
                 userScore.textContent = finalScore; 
-            }
+            }        
         }
     });
 
@@ -90,6 +96,7 @@ function draw() {
 function gameLoop(){
     update();
     draw();
+    requestAnimationFrame(gameLoop);
 }
 
 gameLoop();
