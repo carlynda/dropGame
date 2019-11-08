@@ -29,20 +29,4 @@ Logic:
     * [ ] Point decreases as user increase the amount of item drops 
     * [ ] Get points and store points based on landing location 
     * [x] Update item amount based on points 
-=======
-* [x] Create a canvas with target at the bottom of the screen, center of width
-* [x] Create objects to drop 
-* [x] Score board
-* [x] Item input, drop button 
-* [ ] Fix drop button's look
 
-Logic: 
-* [ ] Dropping mechanism
-    * [x] Get random starting point: random x, y = 0
-    * [x] Give each object random velocity 
-    * [x] If object hits edge: bounce back
-* [ ] Scoring mechanism:
-    * [ ] Point decreases as user increase the amount of item drops 
-    * [ ] Get points and store points based on landing location 
-    * [x] Update item amount based on points 
->>>>>>> 9f3d399f9ad035599b07f5d2d6c926a3a58484ec

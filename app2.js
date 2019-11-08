@@ -83,7 +83,7 @@ function update(){
             const a  = drop.location.x; 
             const dropScore = Math.abs(window.innerWidth / 2 - a);
             if(dropScore <= targetHalfWidth){
-                score = Math.round((1 - dropScore / targetHalfWidth) * 10); 
+                score = Math.ceil((1 - dropScore / targetHalfWidth) * 10); 
                 totalScore += score;
                 message.style.display = 'block';
                 alertScore.textContent = score;  
