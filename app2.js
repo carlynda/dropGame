@@ -36,7 +36,7 @@ function doDrop(){
             element, 
             location: {
                 x: Math.random() * window.innerWidth, 
-                y: 200,
+                y: -200,
             }, 
             velocity: {
                 x: Math.random() * (Math.random() > 0.5 ? -1:1) * 10,
